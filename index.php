@@ -11,8 +11,8 @@
 header('Content-Type: text/html; charset=UTF-8');
 
 // Инициализируем переменные для подключения к базе данных.
-$db_user = 'u16671';   // Логин БД
-$db_pass = '3137204';  // Пароль БД
+$db_user = 'u20983';   // Логин БД
+$db_pass = '3425454';  // Пароль БД
 
 // Подключаемся к базе данных на сервере.
 $db = new PDO('mysql:host=localhost;dbname=u16671', $db_user, $db_pass, array(
@@ -149,9 +149,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // Пытаемся достать данные пользователя из БД.
     try {
       // Подготавливаем SQL запрос, где вопросы заменятся на значения.
-      // Запрос направляется в таблицу form5 с данными пользователей
+      // Запрос направляется в таблицу userProfile с данными пользователей
       // и достает из нее все значения, где uid = логину пользователя.
-      $stmt = $db->prepare("SELECT * FROM form5 WHERE uid = ?");
+      $stmt = $db->prepare("SELECT * FROM userProfile WHERE uid = ?");
       // Заменяем вопросы на значения.
       $stmt->execute(array(
         $_SESSION['login']
@@ -285,9 +285,9 @@ else {
     // Пытаемся отправить новые данные пользователя в базу данных.
     try {
       // Подготавливаем SQL запрос, где вопросы заменятся на значения.
-      // Запрос направляется в таблицу form5 с данными пользователей
+      // Запрос направляется в таблицу userProfile с данными пользователей
       // и обновляет значения, кроме uid, где uid = логину пользователя.
-      $stmt = $db->prepare("UPDATE form5 SET name = ?, email = ?, age = ?, sex = ?, limbs = ?, powers = ?, bio = ? WHERE uid = ?");
+      $stmt = $db->prepare("UPDATE userProfile SET name = ?, email = ?, age = ?, sex = ?, limbs = ?, powers = ?, bio = ? WHERE uid = ?");
       // Заменяем вопросы на значения.
       $stmt->execute(array(
         $_POST['name'],
@@ -320,8 +320,8 @@ else {
     // Пытаемся отправить данные в базу данных.
     try {
       // Подготавливаем SQL запрос, где вопросы заменятся на значения.
-      // Запрос направляется в таблицу form5 с данными пользователей.
-      $stmt_form = $db->prepare("INSERT INTO form5 SET uid = ?, name = ?, email = ?, age = ?, sex = ?, limbs = ?, powers = ?, bio = ?");
+      // Запрос направляется в таблицу userProfile с данными пользователей.
+      $stmt_form = $db->prepare("INSERT INTO userProfile SET uid = ?, name = ?, email = ?, age = ?, sex = ?, limbs = ?, powers = ?, bio = ?");
       // Заменяем вопросы на значения.
       $stmt_form->execute(array(
         $login,

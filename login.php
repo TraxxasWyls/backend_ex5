@@ -17,8 +17,8 @@ header('Content-Type: text/html; charset=UTF-8');
 session_start();
 
 // Инициализируем переменные для подключения к базе данных.
-$db_user = 'u16671';   // Логин БД
-$db_pass = '3137204';  // Пароль БД
+$db_user = 'u20983';   // Логин БД
+$db_pass = '3425454';  // Пароль БД
 
 // В суперглобальном массиве $_SESSION хранятся переменные сессии.
 // Будем сохранять туда логин после успешной авторизации.
@@ -49,7 +49,7 @@ else {
   // Не забываем захэшировать пароль с помощью алгоритма sha256.
   $pass =  hash('sha256', $_POST['pass'], false);
 
-  $db = new PDO('mysql:host=localhost;dbname=u16671', $db_user, $db_pass, array(
+  $db = new PDO('mysql:host=localhost;dbname=u20983', $db_user, $db_pass, array(
     PDO::ATTR_PERSISTENT => true
   ));
 
