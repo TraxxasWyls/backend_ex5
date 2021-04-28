@@ -15,7 +15,7 @@ $db_user = 'u20983';   // Логин БД
 $db_pass = '3425454';  // Пароль БД
 
 // Подключаемся к базе данных на сервере.
-$db = new PDO('mysql:host=localhost;dbname=u16671', $db_user, $db_pass, array(
+$db = new PDO('mysql:host=localhost;dbname=u20983', $db_user, $db_pass, array(
   PDO::ATTR_PERSISTENT => true
 ));
 
